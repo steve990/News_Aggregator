@@ -1,5 +1,7 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Image from './Image';
+import Menu from './Menu';
 
 const API_KEY   = 'c1e8a0f1855c4fcf814aef1091bd6c53';
 const BASE_URL  = 'https://newsapi.org/v2/everything?sortBy=publishedAt&apiKey='
@@ -80,8 +82,10 @@ class App extends React.Component {
     }
 
     render() {
-        return (          
+        return (         
+            <Router>
             <div>
+                <Menu />
                 <Image />
                 <ul>
                 {this.state.articles.map((article, index) => (
@@ -92,7 +96,8 @@ class App extends React.Component {
                     </li>
                 ))}  
                 </ul>
-            </div>     
+            </div>    
+            </Router> 
         )
     }
 }
